@@ -104,7 +104,7 @@ def page_visualizations():
     
     # Загрузка реального датасета (укажите путь к вашему файлу)
     # Если файл в той же папке что и app.py:
-    df = pd.read_csv('../../data/csgo_task_treated.csv')  # замените на имя вашего файла
+    df = pd.read_csv('csgo_task_treated.csv')  # замените на имя вашего файла
     
     # Удаление дубликатов
     df = df.drop_duplicates()
