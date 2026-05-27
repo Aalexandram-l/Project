@@ -15,7 +15,6 @@ from catboost import CatBoostClassifier
 
 @st.cache_resource
 def load_model(path, model_type="joblib"):
-    """Универсальная загрузка моделей разных типов"""
     try:
         if model_type == "catboost":
             model = CatBoostClassifier()
@@ -62,7 +61,7 @@ def page_developer():
         """)
 
 def page_dataset():
-    st.title("📊 Информация о наборе данных")
+    st.title("Информация о наборе данных")
     st.markdown("""
     **Предметная область:** Киберспорт (CS:GO) – предсказание установки бомбы командой террористов.
     
@@ -100,7 +99,7 @@ def page_dataset():
     """)
 
 def page_visualizations():
-    st.title("📈 Визуализации данных")
+    st.title("Визуализации данных")
     
     # Загрузка реального датасета (укажите путь к вашему файлу)
     # Если файл в той же папке что и app.py:
@@ -172,7 +171,7 @@ def page_visualizations():
     st.pyplot(fig5)
 
 def page_inference():
-    st.title("🔮 Предсказание установки бомбы (bomb_planted)")
+    st.title("Предсказание установки бомбы (bomb_planted)")
     
     # Выбор модели
     model_name = st.selectbox("Выберите модель", list(loaded_models.keys()))
@@ -199,29 +198,29 @@ def page_inference():
         st.subheader("Введите текущее состояние игры")
         
         if expected_features == 10:
-            st.info("⚙️ Эта модель использует 10 признаков (здоровье, деньги, броня, время)")
+            st.info("Эта модель использует 10 признаков (здоровье, деньги, броня, время)")
             
             col1, col2 = st.columns(2)
             
             with col1:
-                st.markdown("**❤️ Здоровье и броня**")
+                st.markdown("**Здоровье и броня**")
                 ct_health = st.number_input("Здоровье CT", min_value=0, max_value=500, value=400)
                 t_health = st.number_input("Здоровье T", min_value=0, max_value=500, value=400)
                 ct_armor = st.number_input("Броня CT", min_value=0, max_value=500, value=200)
                 
-                st.markdown("**💰 Экономика**")
+                st.markdown("**Экономика**")
                 ct_money = st.number_input("Деньги CT ($)", min_value=0, max_value=50000, value=5000, step=500)
                 ct_helmets = st.number_input("Шлемы CT", min_value=0, max_value=5, value=0)
             
             with col2:
-                st.markdown("**🔧 Снаряжение**")
+                st.markdown("**Снаряжение**")
                 ct_defuse_kits = st.number_input("Наборы для разминирования", min_value=0, max_value=5, value=0)
                 
-                st.markdown("**👥 Живые игроки**")
+                st.markdown("**Живые игроки**")
                 ct_players_alive = st.number_input("Живые CT", min_value=0, max_value=5, value=5)
                 t_players_alive = st.number_input("Живые T", min_value=0, max_value=5, value=5)
                 
-                st.markdown("**⏱️ Время**")
+                st.markdown("**Время**")
                 time_left_sec = st.number_input("Оставшееся время (сек)", min_value=0.0, max_value=180.0, value=90.0, step=1.0)
             
             time_left_ms = time_left_sec * 1000
@@ -242,31 +241,31 @@ def page_inference():
                 
                 st.markdown("---")
                 if prediction == 1:
-                    st.success("💣 **БОМБА БУДЕТ УСТАНОВЛЕНА!**")
+                    st.success("**Бомба будет установлена!**")
                 else:
-                    st.info("🔫 **БОМБА НЕ БУДЕТ УСТАНОВЛЕНА**")
+                    st.info("**Бомба не будет установлена!**")
         
         else:  # expected_features == 16
-            st.info("⚙️ Эта модель использует 16 признаков (полный набор данных)")
+            st.info("Эта модель использует 16 признаков (полный набор данных)")
             
             col1, col2, col3 = st.columns(3)
             
             with col1:
-                st.markdown("**⏱️ Время и счёт**")
+                st.markdown("**Время и счёт**")
                 time_left_sec = st.number_input("Оставшееся время (сек)", min_value=0.0, max_value=180.0, value=90.0, step=1.0)
                 ct_score = st.number_input("Счёт CT", min_value=0, max_value=30, value=0)
                 t_score = st.number_input("Счёт T", min_value=0, max_value=30, value=0)
                 map_binary = st.selectbox("map_binary", [0, 1], format_func=lambda x: "Карта 0" if x == 0 else "Карта 1")
             
             with col2:
-                st.markdown("**❤️ Здоровье и броня**")
+                st.markdown("**Здоровье и броня**")
                 ct_health = st.number_input("Здоровье CT", min_value=0, max_value=500, value=400)
                 t_health = st.number_input("Здоровье T", min_value=0, max_value=500, value=400)
                 ct_armor = st.number_input("Броня CT", min_value=0, max_value=500, value=200)
                 t_armor = st.number_input("Броня T", min_value=0, max_value=500, value=200)
             
             with col3:
-                st.markdown("**💰 Экономика**")
+                st.markdown("**Экономика**")
                 ct_money = st.number_input("Деньги CT ($)", min_value=0, max_value=50000, value=5000, step=500)
                 t_money = st.number_input("Деньги T ($)", min_value=0, max_value=50000, value=5000, step=500)
                 ct_helmets = st.number_input("Шлемы CT", min_value=0, max_value=5, value=0)
@@ -295,9 +294,9 @@ def page_inference():
                 
                 st.markdown("---")
                 if prediction == 1:
-                    st.success("💣 **БОМБА БУДЕТ УСТАНОВЛЕНА!**")
+                    st.success("**Бомба будет установлена!**")
                 else:
-                    st.info("🔫 **БОМБА НЕ БУДЕТ УСТАНОВЛЕНА**")
+                    st.info("**Бомба не будет установлена!**")
     
     # ----- Загрузка CSV -----
     else:
@@ -354,7 +353,7 @@ def page_inference():
                 st.dataframe(df[display_cols].head(20))
                 
                 # Статистика
-                st.subheader("📊 Статистика предсказаний")
+                st.subheader("Статистика предсказаний")
                 col_a, col_b = st.columns(2)
                 with col_a:
                     bomb_count = df['prediction'].sum()
@@ -366,7 +365,7 @@ def page_inference():
                 # Кнопка скачивания результата
                 csv_output = df.to_csv(index=False).encode('utf-8')
                 st.download_button(
-                    "📥 Скачать результаты CSV",
+                    "Скачать результаты CSV",
                     csv_output,
                     "bomb_planted_predictions.csv",
                     "text/csv"
