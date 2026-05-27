@@ -255,7 +255,16 @@ def page_inference():
                 time_left_sec = st.number_input("Оставшееся время (сек)", min_value=0.0, max_value=180.0, value=90.0, step=1.0)
                 ct_score = st.number_input("Счёт CT", min_value=0, max_value=30, value=0)
                 t_score = st.number_input("Счёт T", min_value=0, max_value=30, value=0)
-                map_binary = st.selectbox("map_binary", [0, 1], format_func=lambda x: "Карта 0" if x == 0 else "Карта 1")
+                map_options = [1, 2, 4, 8, 16, 32, 64, 128]
+                map_names = {
+                    1: "de_inferno", 2: "de_mirage", 4: "de_dust2", 8: "de_nuke",
+                    16: "de_overpass", 32: "de_train", 64: "de_vertigo", 128: "de_ancient"
+                }
+                map_binary = st.selectbox(
+                    "Игровая карта",
+                    options=map_options,
+                    format_func=lambda x: f"{map_names.get(x, 'Неизвестно')}"
+                )    
             
             with col2:
                 st.markdown("**Здоровье и броня**")
