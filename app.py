@@ -12,7 +12,6 @@ st.set_page_config(page_title="ML Классификатор", layout="wide")
 import streamlit as st
 import joblib
 from catboost import CatBoostClassifier
-import tensorflow as tf
 
 @st.cache_resource
 def load_model(path, model_type="joblib"):
@@ -54,7 +53,7 @@ def page_developer():
     col1, col2 = st.columns([1, 3])
     with col1:
         # Замените на путь к вашему фото
-        st.image("фото на документы.jpg", caption="Фото студента")
+        st.image("foto.jpg", caption="Фото студента")
     with col2:
         st.markdown("""
         **ФИО:** Мирошникова Александра Викторовна 
