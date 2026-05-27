@@ -12,7 +12,6 @@ st.set_page_config(page_title="ML Классификатор", layout="wide")
 import streamlit as st
 import joblib
 from catboost import CatBoostClassifier
-import tensorflow as tf
 
 @st.cache_resource
 def load_model(path, model_type="joblib"):
