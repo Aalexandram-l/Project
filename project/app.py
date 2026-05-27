@@ -53,7 +53,7 @@ def page_developer():
     col1, col2 = st.columns([1, 3])
     with col1:
         # Замените на путь к вашему фото
-        st.image("фото на документы.jpg", caption="Фото студента")
+        st.image("foto.jpg", caption="Фото студента")
     with col2:
         st.markdown("""
         **ФИО:** Мирошникова Александра Викторовна 
