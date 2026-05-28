@@ -137,7 +137,7 @@ def page_visualizations():
     # Убираем bomb_planted из корреляции с самим собой
     corr_matrix = df[numeric_cols].corr()
     
-    fig3, ax3 = plt.subplots()
+    fig3, ax3 = plt.subplots(figsize=(12, 10))
     sns.heatmap(corr_matrix, annot=True, fmt='.2f', cmap='coolwarm', 
                 square=True, ax=ax3, cbar_kws={"shrink": 0.8})
     plt.xticks(rotation=45, ha='right')
