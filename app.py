@@ -29,11 +29,11 @@ def load_model(path, model_type="joblib"):
 # Правильные пути к файлам (с учётом реальных расширений)
 models = {
     "ML1: SVM": {"path": "models/model_ml1.joblib", "type": "joblib"},
-    "ML2: GradientBoosting (бустинг)": {"path": "models/model_ml2.joblib", "type": "joblib"},
+    "ML2: GradientBoostingClassifier (бустинг)": {"path": "models/model_ml2.joblib", "type": "joblib"},
     "ML3: CatBoost": {"path": "models/model_ml3.cbm", "type": "catboost"},
-    "ML4: Random Forest (бэггинг)": {"path": "models/model_ml4.joblib", "type": "joblib"},
-    "ML5: Stacking": {"path": "models/model_ml5.joblib", "type": "joblib"},
-    "ML6: Нейронная сеть (MLP)": {"path": "models/model_ml6.joblib", "type": "joblib"}
+    "ML4: BaggingClassifier (бэггинг)": {"path": "models/model_ml4.joblib", "type": "joblib"},
+    "ML5: StackingClassifier": {"path": "models/model_ml5.joblib", "type": "joblib"},
+    "ML6: MLPClassifier": {"path": "models/model_ml6.joblib", "type": "joblib"}
 }
 
 # Загружаем все модели
