@@ -49,7 +49,6 @@ def page_developer():
     st.title("📄 О разработчике")
     col1, col2 = st.columns([1, 3])
     with col1:
-        # Замените на путь к вашему фото
         st.image("foto.jpg", caption="Фото студента")
     with col2:
         st.markdown("""
@@ -178,8 +177,7 @@ def page_inference():
     
     # Способ ввода данных
     input_method = st.radio("Способ ввода данных", ["Ручной ввод", "Загрузка CSV"])
-    
-    # ----- Ручной ввод -----
+
     if input_method == "Ручной ввод":
         st.subheader("Введите текущее состояние игры")
         
@@ -293,7 +291,6 @@ def page_inference():
                 else:
                     st.info("**Бомба не будет установлена!**")
     
-    # ----- Загрузка CSV -----
     else:
         st.subheader("Загрузите файл с данными (CSV)")
         
