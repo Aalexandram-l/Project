@@ -20,8 +20,6 @@ def load_model(path, model_type="joblib"):
             model = CatBoostClassifier()
             model.load_model(path)
             return model
-        elif model_type == "tensorflow":
-            return tf.keras.models.load_model(path)
         else:  # joblib (sklearn модели)
             return joblib.load(path)
     except Exception as e:
