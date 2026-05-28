@@ -97,6 +97,7 @@ def page_dataset():
 
 def page_visualizations():
     st.title("Визуализации данных")
+    df = pd.read_csv('csgo_task_treated.csv')  
     st.markdown("**Всего записей:** " + str(len(df)))
     
     # 1. Гистограмма оставшегося времени в раунде
