@@ -98,18 +98,6 @@ def page_dataset():
 
 def page_visualizations():
     st.title("Визуализации данных")
-    
-    # Загрузка реального датасета (укажите путь к вашему файлу)
-    # Если файл в той же папке что и app.py:
-    df = pd.read_csv('csgo_task_treated.csv')  # замените на имя вашего файла
-    
-    # Удаление дубликатов
-    df = df.drop_duplicates()
-    
-    # Преобразование bomb_planted в 0/1 (если ещё не преобразовано)
-    if df['bomb_planted'].dtype == 'bool':
-        df['bomb_planted'] = df['bomb_planted'].astype(int)
-    
     st.markdown("**Всего записей:** " + str(len(df)))
     
     # 1. Гистограмма оставшегося времени в раунде
