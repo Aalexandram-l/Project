@@ -114,7 +114,7 @@ def page_visualizations():
     
     # 1. Гистограмма оставшегося времени в раунде
     st.subheader("Распределение оставшегося времени в раунде")
-    fig1, ax1 = plt.subplots(figsize=(5, 3))
+    fig1, ax1 = plt.subplots()
     ax1.hist(df['time_left_sec'], bins=30, edgecolor='black', color='skyblue')
     ax1.set_xlabel("Оставшееся время (секунды)")
     ax1.set_ylabel("Частота")
@@ -124,7 +124,7 @@ def page_visualizations():
     
     # 2. Boxplot денег террористов по целевой переменной
     st.subheader("Деньги террористов в зависимости от установки бомбы")
-    fig2, ax2 = plt.subplots(figsize=(5, 3))
+    fig2, ax2 = plt.subplots()
     sns.boxplot(x='bomb_planted', y='t_money', data=df, ax=ax2)
     ax2.set_xlabel("Установка бомбы (0=нет, 1=да)")
     ax2.set_ylabel("Деньги террористов ($)")
@@ -137,7 +137,7 @@ def page_visualizations():
     # Убираем bomb_planted из корреляции с самим собой
     corr_matrix = df[numeric_cols].corr()
     
-    fig3, ax3 = plt.subplots(figsize=(6, 5))
+    fig3, ax3 = plt.subplots()
     sns.heatmap(corr_matrix, annot=True, fmt='.2f', cmap='coolwarm', 
                 square=True, ax=ax3, cbar_kws={"shrink": 0.8})
     plt.xticks(rotation=45, ha='right')
@@ -146,7 +146,7 @@ def page_visualizations():
     
     # 4. Количество живых игроков в зависимости от установки бомбы
     st.subheader("Влияние живых игроков на установку бомбы")
-    fig4, ax4 = plt.subplots(figsize=(5, 3))
+    fig4, ax4 = plt.subplots()
     
     # Группировка по количеству живых террористов
     t_alive_means = df.groupby('t_players_alive')['bomb_planted'].mean()
@@ -162,7 +162,7 @@ def page_visualizations():
     
     # 5. Дополнительная визуализация: здоровье CT vs установка бомбы
     st.subheader("Здоровье спецназа в зависимости от установки бомбы")
-    fig5, ax5 = plt.subplots(figsize=(5, 3))
+    fig5, ax5 = plt.subplots()
     sns.violinplot(x='bomb_planted', y='ct_health', data=df, ax=ax5)
     ax5.set_xlabel("Установка бомбы (0=нет, 1=да)")
     ax5.set_ylabel("Суммарное здоровье спецназа (HP)")
